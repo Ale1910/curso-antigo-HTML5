@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tudo sobre Google Glass</title>
     <link rel="stylesheet" href="../_css/estilo.css">    
+    <link rel="stylesheet" href="../_css/specs.css">
 </head>
 <script src="../_javascript/funcoes.js"></script>
 <body>
@@ -40,8 +41,14 @@
 </header>        
     <p>Clique em qualquer área destacada da imagem para ter mais informações sobre os recursos do Google Glass. Qualquer ponto vermelho vai te levar a um lugar cheio de novas informações. </p>   
     <section id="conteudo">
-        <img src="../_imagens/glass-esquema-marcado.jpg" alt="Desenho Google Glass">
-        <iframe src="../_textos/google-glass-txt.html" name="janela" id="frame-spec" frameborder="0"></iframe>
+        <img src="../_imagens/glass-esquema-marcado.jpg" usemap="#meumapa" alt="Desenho Google Glass">
+        <map name="meumapa">
+            <area shape="rect" coords="181, 207, 270, 260" href="../_textos/google-glass-txt.html#tela" alt="Foto Google Glass" target="janela">
+            <area shape="circle" coords="158,243, 12" href="../_textos/google-glass-txt.html#camera" alt="Foto Câmera Google Glass" target="janela">
+            <area shape="circle" coords="76,51, 11" href="../_textos/google-glass-txt.html#gadgets" alt="Foto Bateria Google Glass" target="janela">
+            <area shape="poly" coords="27,144, 82, 215, 83, 251, 26, 168" href="../_textos/google-glass-txt.html#sensores" alt="Foto Sensores Google Glass" target="janela">
+        </map>
+        <iframe scrolling="no" src="../_textos/google-glass-txt.html" name="janela" id="frame-spec" ></iframe>
     </section>
 </article>
 </section>
