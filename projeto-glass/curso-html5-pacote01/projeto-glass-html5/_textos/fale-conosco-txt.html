@@ -8,6 +8,13 @@
     <link rel="stylesheet" href="../_css/form.css">   
 </head>
 <script src="../_javascript/funcoes.js"></script>
+<script>
+    function calc_total() {
+        var qtd = parseInt(document.getElementById('cqtd').value);
+        tot = qtd * 1500
+        document.getElementById('ctot').value = tot;
+    }
+</script>
 <body>
 <div id="interface">
     <header id="cabecalho">
@@ -40,7 +47,7 @@
     </hgroup>
     </header>        
 
-<form method="post">
+<form method="post" id="fcontato" action="mailto:alexandre.jogarcia@gmail.com" oninput="calc_total();">
     <fieldset id="usuario"><legend>Identificação do Usuário</legend>
              <p><label for="cnome">Nome: </label> <input type="text" name="tnome" id="cnome" size="20" maxlength="30" placeholder="Nome Completo"></p>
              <p><label for="csenha">Senha: </label> <input type="password" name="tsenha" id="csenha" size="8" maxlength="8" placeholder="8 dígitos" ></p>
@@ -56,24 +63,71 @@
     <fieldset id="endereco"><legend>Endereço do Usuário</legend>
             <p><label for="crua">Logradouro: </label><input type="text" name="trua" id="crua" size="13" maxlength="80" placeholder="Rua, Av, travessa, ..."></p>
             <p><label for="cnum">Número: </label><input type="number" name="tnum" id="cnum" min="0" max="99999"></p>
-            <p><label for="cest">Estado: </label></p>
-            <p><label for="ccid">Cidade: </label></p>
+            <p><label for="cest">Estado: </label><select name="test" id="cest">
+                <optgroup label="Norte">
+                    <option value="AC">Acre</option>
+                    <option value="AP">Amapá</option>
+                    <option value="AM">Amazonas</option>
+                    <option value="PA">Pará</option>
+                    <option value="RO">Rondônia</option>
+                    <option value="RR">Roraima</option>
+                    <option value="TO">Tocantins</option>
+                </optgroup>
+                <optgroup label="Nordeste">
+                    <option value="AL">Alagoas</option>
+                    <option value="BA">Bahia</option>
+                    <option value="CE">Ceará</option>
+                    <option value="MA">Maranhão</option>
+                    <option value="PB">Paraíba</option>
+                    <option value="PE">Pernambuco</option>
+                    <option value="PI">Piauí</option>
+                    <option value="RN">Rio Grande do Norte</option>
+                    <option value="SE">Sergipe</option>
+                </optgroup>
+                <optgroup label="Centro-Oeste">
+                    <option value="DF">Distrito Federal</option>
+                    <option value="GO">Goiás</option>
+                    <option value="MT">Mato Grosso</option>
+                    <option value="MS">Mato Grosso do Sul</option>
+                </optgroup>
+                <optgroup label="Sudeste">
+                    <option value="ES">Espírito Santo</option>
+                    <option value="MG">Minas Gerais</option>
+                    <option value="RJ">Rio de Janeiro</option>
+                    <option value="SP">São Paulo</option>
+                </optgroup>
+                <optgroup label="Sul">
+                    <option value="PR">Paraná</option>
+                    <option value="RS">Rio Grande do Sul</option>
+                    <option value="SC">Santa Catarina</option>
+                </optgroup>
+            </select></p>
+            <p><label for="ccid">Cidade: </label><input type="text" name="tcid" id="ccid" maxlength="40" size="20" placeholder="Sua Cidade" list="cidades"></p>
+           <datalist id="cidades">
+               <option value="Rio de Janeiro"></option>
+               <option value="Nova Iguaçu"></option>
+               <option value="Niterói"></option>
+               <option value="Belford Roxo"></option>
+           </datalist>
     </fieldset>
     
     <fieldset id="mensagem"><legend> Mensagem do Usuário</legend>
-            <p><label for="curg">Grau de Urgência:</label></p>
-            <p><label for="cmsg">Mensagem:</label></p>
+            <p><label for="curg">Grau de Urgência:</label> Min<input type="range" name="turg" id="curg" min="0" max="10" step="2" >Max</p>
+            <p><label for="cmsg">Mensagem: </label><textarea name="tmsg" id="cmsg" cols="35" rows="5" placeholder="Deixe aqui sua Mensagem"></textarea></p>
     </fieldset>
     
     <fieldset id="quero"><legend> Quero um Google Glass</legend>
-            <p><label for="cped">Gostaria de adquirir um Google Glass quando disponível:</label></p>
-            <p><label for="ccor"></label>Cor:</label></p>
-            <p><label for="cqtd"></label>Quantidade:</label></p>
-            <p><label for="ctot"></label>Preço Total: R$</label></p>
+            <p> <input type="checkbox" name="tped" id="cped" checked><label for="cped">Gostaria de adquirir um Google Glass quando disponível:</label></p>
+            <p><label for="ccor"></label>Cor:</label>
+            <input type="color" name="tcor" id="ccor" value="#0000ff"></p>
+            <p><label for="cqtd"></label>Quantidade:</label>
+            <input type="number" name="tqtd" id="cqtd" min="0" max="5" value="0"></p>
+            <p><label for="ctot"></label>Preço Total: R$</label>
+            <input type="text" name="ttot" id="ctot" placeholder="total a Pagar" readonly></p>
     </fieldset>
     
-    
-    [BOTÃO ENVIAR]
+    <!--<input type="submit" value="enviar">--> 
+    <input type="image" name="tenviar" id="cenviar" src="../_imagens/botao-enviar.png">
 </form>
 
 </article>

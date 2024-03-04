@@ -255,4 +255,22 @@ footer#rodape {
         text-align: center;
     }
 
+    video#filme01 {
+        display: block;
+        position: relative;
+        left: 40px;
+        top: -10px;
+        width: 420px;
+    }
+
+    video#filme02 {
+        display: block;
+        position: relative;
+        left: 0px;
+        top: 0px;
+        width: 350px;
+    }
+
+
+
 
